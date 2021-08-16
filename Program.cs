@@ -8,6 +8,7 @@ namespace HelloWorldVscode
         {
             Console.WriteLine("Hello World!");
             Console.WriteLine("Hello World second!");
+            Console.WriteLine("Hello World 3!");
         }
     }
 }
