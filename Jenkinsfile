@@ -6,7 +6,7 @@ pipeline {
             steps {
                 echo 'Building linux..'
                 echo 'BRANCH_NAME = ${env.BRANCH_NAME}'
-                dotnet publish -c release -v d -o "linux" --runtime linux-x64 HelloWorldVscode.csproj
+                #dotnet publish -c release -v d -o "linux" --runtime linux-x64 HelloWorldVscode.csproj
             }
         }
         stage('Test') {
