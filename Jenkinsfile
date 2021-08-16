@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building linux..'
-                echo 'BRANCH_NAME = ${env.BRANCH_NAME}'
+                echo "BRANCH_NAME = ${BRANCH_NAME}"
             }
         }
         stage('Test') {
