@@ -34,7 +34,7 @@ pipeline {
                 #echo "LAST_COMMIT = $LAST_COMMIT"
 
                 IS_RELEASE="False"
-                if [ $LAST_COMMIT == $COMMIT_WITH_LAST_TAG ]; then 
+                if [[ $LAST_COMMIT == $COMMIT_WITH_LAST_TAG ]]; then 
                     IS_RELEASE="True"
                 fi
                 echo "IS_RELEASE = $IS_RELEASE"
