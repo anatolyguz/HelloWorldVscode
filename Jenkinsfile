@@ -23,7 +23,8 @@ pipeline {
       stage('Send to slack') {
             steps {
                sh '''#!/bin/bash
-                cd $WORKSPASE
+                echo "WORKSPACE = $WORKSPACE"
+                cd $WORKSPACE
                 #git pull
 
                 COMMIT_WITH_LAST_TAG=$(git rev-list --tags --max-count=1)
