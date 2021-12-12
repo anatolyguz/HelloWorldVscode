@@ -31,8 +31,7 @@ pipeline {
       stage('Send to slack') {
   
           
-   environment {
-  
+            environment {
                   IS_RELEASE = """${sh(
                    returnStdout: true,
                    script:   '''#!/bin/bash
@@ -52,15 +51,13 @@ pipeline {
                 '''
                    )}"""
            
-    }       
+            }       
           
-          
+            when { tag "release-*" }
           
           steps {
-                   
-                when { tag "release-*" }
-                
-                slackSend( color: "good", 
+         
+              slackSend( color: "good", 
                         message: "Message from Jenkins Pipeline" ,
                            channel: "test")
             
