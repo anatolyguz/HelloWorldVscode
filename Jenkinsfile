@@ -53,7 +53,8 @@ pipeline {
            
             }       
           
-            when { tag "release-*" }
+         //   when { tag "release-*" }
+          when { branch 'master' }
           
           steps {
          
