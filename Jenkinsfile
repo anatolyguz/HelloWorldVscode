@@ -84,7 +84,7 @@ pipeline {
                     
                     def attachments = [
   [
-    text: '- I find your lack /n- of faith disturbing! ',
+    text: '- I find your lack \n- of faith disturbing! ',
    "type": "mrkdwn",
     color: "good"
   ]
