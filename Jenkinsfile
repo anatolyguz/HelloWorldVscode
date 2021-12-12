@@ -31,9 +31,7 @@ pipeline {
   
           when { branch 'master' }
   
-          
-          
-            environment {
+          environment {
                   IS_RELEASE = """${sh(
                    returnStdout: true,
                    script:   '''#!/bin/bash
@@ -53,8 +51,11 @@ pipeline {
                 '''
                    )}"""
            
-            }       
+          }       
           
+      
+          
+          when { environment name: 'IS_RELEASE', value: 'True' }
           
           steps {
          
