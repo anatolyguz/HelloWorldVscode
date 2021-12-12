@@ -68,7 +68,7 @@ pipeline {
               
               
              slackSend( color: "good", 
-                        message: "Message from Jenkins Pipeline" ,
+                        message: " - Message1 from Jenkins Pipeline \n - Message2 from Jenkins Pipeline" ,
                            channel: "test")
 
               
