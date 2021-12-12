@@ -1,7 +1,29 @@
 pipeline {
     agent any
-    triggers {
-        githubPush()
+  
+    
+    environment {
+  
+                  IS_RELEASE = """${sh(
+                   returnStdout: true,
+                   script:   '''#!/bin/bash
+                        #echo "WORKSPACE = $WORKSPACE"
+                        cd $WORKSPACE
+                        #git pull
+                        COMMIT_WITH_LAST_TAG=$(git rev-list --tags --max-count=1)
+                        #echo "COMMIT_WITH_LAST_TAG = $COMMIT_WITH_LAST_TAG"
+                        LAST_COMMIT=$(git log --pretty=format:"%H" -1)
+                        #echo "LAST_COMMIT = $LAST_COMMIT"
+                        IS_RELEASE="False"
+                        if [[ $LAST_COMMIT == $COMMIT_WITH_LAST_TAG ]]; then 
+                            IS_RELEASE="True"
+                        fi
+                        #echo "IS_RELEASE = $IS_RELEASE"
+                        echo "$IS_RELEASE"
+                '''
+                   )}"""
+        
+        
     }
     stages {
         stage('Build') {
@@ -22,26 +44,7 @@ pipeline {
   
       stage('Send to slack') {
             steps {
-               IS_RELEASE = """${sh(
-                   returnStdout: true,
-                   script:   '''#!/bin/bash
-                        #echo "WORKSPACE = $WORKSPACE"
-                        cd $WORKSPACE
-                        #git pull
-                        COMMIT_WITH_LAST_TAG=$(git rev-list --tags --max-count=1)
-                        #echo "COMMIT_WITH_LAST_TAG = $COMMIT_WITH_LAST_TAG"
-                        LAST_COMMIT=$(git log --pretty=format:"%H" -1)
-                        #echo "LAST_COMMIT = $LAST_COMMIT"
-                        IS_RELEASE="False"
-                        if [[ $LAST_COMMIT == $COMMIT_WITH_LAST_TAG ]]; then 
-                            IS_RELEASE="True"
-                        fi
-                        #echo "IS_RELEASE = $IS_RELEASE"
-                        echo "$IS_RELEASE"
-                '''
-                   )}"""
                    
-  
   
                          slackSend( color: "good", 
                            message: "Message from Jenkins Pipeline" ,
