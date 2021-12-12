@@ -22,16 +22,10 @@ pipeline {
             }
         }
         stage('Test') {
+       
+            
             steps {
          
-                   def attachments = [
-                         [
-                            text: 'I find your lack of faith disturbing!',
-                            fallback: 'Hey, Vader seems to be mad at you.',
-                            color: '#ff0000'
-                          ]
-                        ]
-                slackSend(channel: "#test", attachments: attachments)  
                 
                 echo 'Testing..'
             }
@@ -86,6 +80,17 @@ pipeline {
               
                 echo "IS_RELEASE = ${env.IS_RELEASE}"
                 script {
+                   
+                                def attachments = [
+                         [
+                            text: 'I find your lack of faith disturbing!',
+                            fallback: 'Hey, Vader seems to be mad at you.',
+                            color: '#ff0000'
+                          ]
+                        ]
+                slackSend(channel: "#test", attachments: attachments)  
+       
+                    
                     
                     if (env.IS_RELEASE == "True"){
                                
