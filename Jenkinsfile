@@ -53,7 +53,7 @@ pipeline {
            
           }       
           
-          echo IS_RELEASE
+          //echo IS_RELEASE
           
           when { 
                expression { IS_RELEASE == "True" }
