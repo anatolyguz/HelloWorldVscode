@@ -71,9 +71,9 @@ pipeline {
           steps {
               
               
-             slackSend( color: "good", 
-                        message: " -Message1 from Jenkins Pipeline \n -Message2 from Jenkins Pipeline" ,
-                           channel: "test")
+   //          slackSend( color: "good", 
+   //                     message: " -Message1 from Jenkins Pipeline \n -Message2 from Jenkins Pipeline" ,
+   //                        channel: "test")
 
          
               
@@ -88,7 +88,7 @@ pipeline {
     color: "good"
   ]
 ]
-slackSend(channel: "#test", attachments: attachments)
+slackSend(channel: "#test",  message: "I am a test message", attachments: attachments)
                     
                     if (env.IS_RELEASE == "True"){
                                
