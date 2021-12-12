@@ -5,8 +5,10 @@ properties([disableConcurrentBuilds()])
 
 pipeline {
     agent any
-    triggers {
-        githubPush()
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
+        timestamps()
+        skipDefaultCheckout(true)
     }
     
     stages {
@@ -14,6 +16,8 @@ pipeline {
             steps {
              // Clean before build
                 cleanWs()
+                 // We need to explicitly checkout from SCM here
+                checkout scm
                 echo 'Building linux..'
             }
         }
