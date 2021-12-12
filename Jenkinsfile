@@ -83,13 +83,17 @@ pipeline {
                    
                                 def attachments = [
                          [
-                            text: 'I find your lack of faith disturbing!',
-                            fallback: 'Hey, Vader seems to be mad at you.',
+                            text: '- I find your lack of faith disturbing!',
+                            
+                             fallback: 'Hey, Vader seems to be mad at you.',
                             color: '#ff0000'
                           ]
                         ]
                 slackSend(channel: "#test", attachments: attachments)  
        
+  
+                     sh "echo hey > blah.txt"
+                    slackUploadFile filePath: "*.txt", initialComment:  "HEY HEY"
                     
                     
                     if (env.IS_RELEASE == "True"){
