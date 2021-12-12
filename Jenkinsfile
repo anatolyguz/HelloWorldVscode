@@ -71,9 +71,9 @@ pipeline {
           steps {
               
               
-   //          slackSend( color: "good", 
-   //                     message: " -Message1 from Jenkins Pipeline \n -Message2 from Jenkins Pipeline" ,
-   //                        channel: "test")
+             slackSend( color: "good", 
+                        message: "https:/https://update.hideez.com/hes/build.json" ,
+                           channel: "#test")
 
          
               
