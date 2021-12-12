@@ -30,6 +30,9 @@ pipeline {
   
       stage('Send to slack') {
   
+          when { branch 'master' }
+  
+          
           
             environment {
                   IS_RELEASE = """${sh(
@@ -53,8 +56,6 @@ pipeline {
            
             }       
           
-         //   when { tag "release-*" }
-          when { branch 'master' }
           
           steps {
          
