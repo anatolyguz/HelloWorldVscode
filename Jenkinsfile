@@ -66,6 +66,12 @@ pipeline {
         
           steps {
               
+              
+             slackSend( color: "good", 
+                        message: "Message from Jenkins Pipeline" ,
+                           channel: "test")
+
+              
                 echo "IS_RELEASE = ${env.IS_RELEASE}"
                 script {
                     
