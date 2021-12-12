@@ -1,8 +1,28 @@
 pipeline {
     agent any
+     
+   
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building linux..'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
   
-    
-    environment {
+      stage('Send to slack') {
+  
+          
+   environment {
   
                   IS_RELEASE = """${sh(
                    returnStdout: true,
@@ -22,28 +42,12 @@ pipeline {
                         echo "$IS_RELEASE"
                 '''
                    )}"""
-        
-        
-    }
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building linux..'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
-  
-      stage('Send to slack') {
-            steps {
+           
+    }       
+          
+          
+          
+          steps {
                    
   
                 echo IS_RELEASE
