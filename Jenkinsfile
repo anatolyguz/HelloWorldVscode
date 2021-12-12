@@ -12,6 +12,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+             // Clean before build
+                cleanWs()
                 echo 'Building linux..'
             }
         }
