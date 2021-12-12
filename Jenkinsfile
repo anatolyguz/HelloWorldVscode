@@ -118,7 +118,7 @@ blocks = [
 	]
 ]
 
-slackSend(channel: "#general", blocks: blocks)                    
+slackSend(channel: "#test", blocks: blocks)                    
                     
                     
                     
