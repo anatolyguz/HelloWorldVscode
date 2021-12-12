@@ -1,0 +1,13 @@
+{
+  "version": "3.9.2",
+  "date": "2021-12-09",
+  "changes": [
+    "Added info for updating server on IIS",
+    "Added check unsupported browser",
+    "Updated api controllers",
+    "Updated employee license",
+    "Fixed urls validation"
+  ],
+  "win": "https://update.hideez.com/hes/windows_x64_3.9.2.zip",
+  "linux": "https://update.hideez.com/hes/linux_x64_3.9.2.tar.gz"
+}
