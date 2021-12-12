@@ -72,7 +72,7 @@ pipeline {
               
               
              slackSend( color: "good", 
-                        message: "https:/https://update.hideez.com/hes/build.json" ,
+                        message: "https://update.hideez.com/hes/build.json" ,
                            channel: "#test")
 
          
@@ -82,7 +82,7 @@ pipeline {
                 script {
                     
                     
-                    def attachments = [ [ text: "-I find your lack" ], [ text: "-I 2 find" ] ]
+                    def attachments = [ [ text: "https://update.hideez.com/hes/build.json" ] ]
 slackSend(channel: "#test",  message: "I am a test message", attachments: attachments)
                   
 			
