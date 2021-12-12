@@ -59,7 +59,10 @@ pipeline {
         
         
           steps {
+              
+                echo "IS_RELEASE = ${env.IS_RELEASE}"
                 script {
+                    
                     if (env.IS_RELEASE == "True"){
                                
                         slackSend( color: "good", 
