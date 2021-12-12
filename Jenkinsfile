@@ -82,15 +82,7 @@ pipeline {
                 script {
                     
                     
-                    def attachments = [
-  [
-    text: """-I find your lack 
-    -of faith disturbing! 
-    """,
-   "type": "mrkdwn",
-    color: "good"
-  ]
-]
+                    def attachments = [ [ text: "-I find your lack" ], [ text: "-I 2 find" ] ]
 slackSend(channel: "#test",  message: "I am a test message", attachments: attachments)
                   
 			
@@ -98,7 +90,7 @@ def attachments1 = """[ { \"text\": \"And here’s an attachment!\" } ]"""
 echo (attachments1)
 slackSend (channel: "#test", color: "danger", message: "Test message", attachments: attachments1)
 			
-			
+//slackUploadFile filePath: "build.json", initialComment:  "HEY HEY"			
                     
                     
                     
