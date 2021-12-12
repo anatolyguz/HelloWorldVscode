@@ -40,6 +40,10 @@ pipeline {
                 echo "IS_RELEASE = $IS_RELEASE"
 
                 '''
+                slackSend( color: "good", 
+                           message: "Message from Jenkins Pipeline" ,
+                           channel: "test")
+            
             }
         }
           
