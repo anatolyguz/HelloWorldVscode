@@ -94,9 +94,9 @@ pipeline {
 slackSend(channel: "#test",  message: "I am a test message", attachments: attachments)
                   
 			
-        def attachments = """[ { \"text\": \"And here’s an attachment!\" } ]"""
-        echo (attachments)
-        slackSend (channel: "#test", color: "danger", message: "Test message", attachments: attachments)
+def attachments1 = """[ { \"text\": \"And here’s an attachment!\" } ]"""
+echo (attachments1)
+slackSend (channel: "#test", color: "danger", message: "Test message", attachments: attachments1)
 			
 			
                     
