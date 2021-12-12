@@ -55,18 +55,19 @@ pipeline {
           
           //echo IS_RELEASE
           
-          when { 
-               expression { IS_RELEASE == "True" }
-               }
-          
-          
+        
+        
+        
           steps {
-         
-              slackSend( color: "good", 
+                script {
+                    if (env.IS_RELEASE == "True"){
+                               
+                        slackSend( color: "good", 
                         message: "Message from Jenkins Pipeline" ,
                            channel: "test")
-            
-            }
+                    }
+                } 
+           }
         }
           
         
