@@ -23,6 +23,16 @@ pipeline {
         }
         stage('Test') {
             steps {
+         
+                   def attachments = [
+                         [
+                            text: 'I find your lack of faith disturbing!',
+                            fallback: 'Hey, Vader seems to be mad at you.',
+                            color: '#ff0000'
+                          ]
+                        ]
+                slackSend(channel: "#test", attachments: attachments)  
+                
                 echo 'Testing..'
             }
         }
@@ -71,14 +81,7 @@ pipeline {
                         message: " - Message1 from Jenkins Pipeline \n - Message2 from Jenkins Pipeline" ,
                            channel: "test")
 
-              def attachments = [
-                         [
-                            text: 'I find your lack of faith disturbing!',
-                            fallback: 'Hey, Vader seems to be mad at you.',
-                            color: '#ff0000'
-                          ]
-                        ]
-                slackSend(channel: "#test", attachments: attachments)
+         
               
               
                 echo "IS_RELEASE = ${env.IS_RELEASE}"
