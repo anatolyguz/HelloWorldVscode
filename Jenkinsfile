@@ -53,9 +53,12 @@ pipeline {
            
           }       
           
-      
+          echo IS_RELEASE
           
-          when { environment name: 'IS_RELEASE', value: 'True' }
+          when { 
+               expression { IS_RELEASE == "True" }
+               }
+          
           
           steps {
          
