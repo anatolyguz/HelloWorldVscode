@@ -58,11 +58,10 @@ pipeline {
           
           steps {
                    
-  
-                echo IS_RELEASE
+                when { tag "release-*" }
                 
-                         slackSend( color: "good", 
-                           message: "Message from Jenkins Pipeline" ,
+                slackSend( color: "good", 
+                        message: "Message from Jenkins Pipeline" ,
                            channel: "test")
             
             }
