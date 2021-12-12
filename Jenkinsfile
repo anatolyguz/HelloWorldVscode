@@ -81,6 +81,15 @@ pipeline {
                 echo "IS_RELEASE = ${env.IS_RELEASE}"
                 script {
                     
+                    
+                    def attachments = [
+  [
+    text: 'I find your lack of faith disturbing!',
+    color: "good"
+  ]
+]
+slackSend(channel: "#test", attachments: attachments)
+                    
                     if (env.IS_RELEASE == "True"){
                                
                         slackSend( color: "good", 
