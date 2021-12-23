@@ -19,6 +19,7 @@ pipeline {
                 //checkout scm
                 echo 'Building linux..'
                 sh 'env'
+                
             }
         }
         stage('Test') {
