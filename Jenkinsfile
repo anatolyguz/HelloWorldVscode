@@ -18,6 +18,7 @@ pipeline {
                  // We need to explicitly checkout from SCM here
                 //checkout scm
                 echo 'Building linux..'
+                sh 'env'
             }
         }
         stage('Test') {
