@@ -19,7 +19,11 @@ pipeline {
                 //checkout scm
                 echo 'Building linux..'
                 sh 'env'
+                echo "banch = $banch"
+                echo "tag = $tag"
                 
+    //     }
+
             }
         }
         stage('Test') {
