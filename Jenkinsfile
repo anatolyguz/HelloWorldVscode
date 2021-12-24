@@ -23,17 +23,29 @@ pipeline {
             }
         }
         stage('Test') {
-       
-            
             steps {
                 echo 'Testing..'
             }
         }
-        stage('Deploy') {
+       
+        stage('Deploy release') {
+            when { tag 'release_*' }
+ 
             steps {
-                echo 'Deploying....'
+                echo 'Deploying release....'
             }
         }
+
+       stage('Deploy beta') {
+            when { tag 'beta_*' }
+ 
+            steps {
+                echo 'Deploying release....'
+            }
+        }
+
+
+
   
     //   stage('Send to slack') {
  
